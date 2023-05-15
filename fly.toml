@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for djdash on 2023-05-13T15:51:16-04:00
+# fly.toml app configuration file generated for democues on 2023-05-15T14:34:04-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "djdash"
+app = "democues"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "bos"

@@ -30,8 +30,8 @@ if not SECRET_KEY:
 # Render Deployment Code
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'djdash.fly.dev', '66.241.125.67', '2a09:8280:1::69:19d3']
-CSRF_TRUSTED_ORIGINS = ['https://djdash.fly.dev/', 'http://localhost:8000/']
+ALLOWED_HOSTS = ['localhost', 'dashcues.fly.dev', 'democues.fly.dev', '66.241.125.61', '2a09:8280:1::5b:1ac3']
+CSRF_TRUSTED_ORIGINS = ['https://dashcues.fly.dev/', 'https://democues.fly.dev/', 'http://localhost:8000/']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
