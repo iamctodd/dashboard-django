@@ -31,6 +31,7 @@ if not SECRET_KEY:
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = ['localhost', 'djdash.fly.dev', '66.241.125.67', '2a09:8280:1::69:19d3']
+CSRF_TRUSTED_ORIGINS = ['https://djdash.fly.dev/', 'http://localhost:8000/']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
