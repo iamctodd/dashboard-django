@@ -1,18 +1,24 @@
-FROM python:3.9
+ARG PYTHON_VERSION=3.8-slim-buster
 
-# set environment variables
+FROM python:${PYTHON_VERSION}
+
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY requirements.txt .
-# install python dependencies
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN mkdir -p /code
 
-COPY . .
+WORKDIR /code
 
-# running migrations
-RUN python manage.py migrate
+COPY requirements.txt /tmp/requirements.txt
+RUN set -ex && \
+    pip install --upgrade pip && \
+    pip install -r /tmp/requirements.txt && \
+    rm -rf /root/.cache/
+COPY . /code
 
-# gunicorn
-CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
+ENV SECRET_KEY "itrGgbtYEm2LugI0MUX6zqA1it3rs1DAWssMA2BYJtsnDRjgYl"
+RUN python manage.py collectstatic --noinput
+
+EXPOSE 8000
+
+CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "core.wsgi"]
