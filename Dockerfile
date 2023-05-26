@@ -16,7 +16,7 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
-ENV SECRET_KEY "9akdegSwUTzR0EelWtslX4dfeY03hLc1XEVfYWHc0LuCE3JeiE"
+ENV SECRET_KEY "w8yoWsDs5TerRlVShH3UP1j3rpIk1ybGfbtN0AsjKUqrq5JvUR"
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
